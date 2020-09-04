@@ -1,3 +1,10 @@
 from django.shortcuts import render
 
-# Create your views here.
+from shop.models import Category, Product
+
+
+def prodeuct_in_category(request) :
+    categories = Category.object.all()
+    products = Product.object.all()
+
+    return render(request, 'shop/list.html', {'categories': categories, 'prodects': products})
